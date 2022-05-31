@@ -1,4 +1,28 @@
 * {
     box-sizing: border-box;
   }
+
+.app {
+  width: 100%;
+  background-color: #000;;
+}
   
+/**** HEADER ****/
+
+.header {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #fff;
+  padding: 1em;
+}
+
+
+/**** MENU ****/
+
+
+/**** BACKGROUND IMAGE ****/
+
+.findr {
+  max-width: 100%;
+  border: 2px solid #000;
+  cursor: url(../images/custom-cursor.svg), auto;
+}
