@@ -1,7 +1,20 @@
+import React, { useState } from "react";
+import Header from "./components/Header";
+import Menu from "./components/Menu";
+import BackgroundImage from "./components/BackgroundImage";
+
 function App() {
+  const [playing, setPlaying] = useState(false);
+
+  const startGame = () => {
+    setPlaying(true);
+  };
+
   return (
-    <div className="App">
-      <h1>Where's Waldo?</h1>
+    <div className="app">
+      <Header />
+      {!playing && <Menu startGame={startGame} />}
+      <BackgroundImage />
     </div>
   );
 }
