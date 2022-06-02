@@ -14,7 +14,7 @@ function App() {
     <div className="app">
       <Header />
       {!playing && <Menu startGame={startGame} />}
-      <BackgroundImage />
+      <BackgroundImage playingState={playing} />
     </div>
   );
 }
