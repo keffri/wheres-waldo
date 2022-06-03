@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
+import Stopwatch from "./Stopwatch";
 
-const Header = () => {
-  const { time, setTime } = useState({ hr: 0, min: 0, sec: 0 });
-
+const Header = (props) => {
   return (
     <header className="header">
       <h1 className="header__title">findr</h1>
+      <Stopwatch playing={props.playingState} />
     </header>
   );
 };
