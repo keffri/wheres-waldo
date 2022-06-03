@@ -12,7 +12,7 @@ function App() {
 
   return (
     <div className="app">
-      <Header />
+      <Header playingState={playing} />
       {!playing && <Menu startGame={startGame} />}
       <BackgroundImage playingState={playing} />
     </div>
