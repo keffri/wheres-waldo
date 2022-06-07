@@ -18,7 +18,7 @@ const Menu = (props) => {
           <p className="menu__item--text">Medium - Predator</p>
         </ol>
         <ol className="menu__item">
-          <img className="menu__image" src={spiderman} alt="s[iderman" />
+          <img className="menu__image" src={spiderman} alt="spiderman" />
           <p className="menu__item--text">Hard - Spider-Man</p>
         </ol>
         <ol className="menu__item">
