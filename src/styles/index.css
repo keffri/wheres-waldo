@@ -64,6 +64,48 @@
   height: 325px;
 }
 
+/**** CHARACTER MENU ****/
+
+.characterMenu {
+  width: 1000px;
+  height: 550px;
+  position: fixed;
+  background-color: #fff;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 0 20px 0;
+  border-radius: 5px;  
+  z-index: 2;
+}
+
+.characterMenu__list {
+  height: 200px;
+  width: 900px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.characterMenu__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.characterMenu__item--text {
+  margin-top: 1em;
+}
+
+.characterMenu__image {
+  width: 175px;
+  height: 325px;
+}
+
 
 /**** BACKGROUND IMAGE ****/
 
