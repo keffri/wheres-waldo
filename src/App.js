@@ -7,10 +7,10 @@ import CharactersMenu from "./components/CharactersMenu";
 function App() {
   const [playing, setPlaying] = useState(false);
   const [characters, setCharacters] = useState([
-    { character: "Alex Mercer", found: false },
-    { character: "Predator", found: false },
-    { character: "Spider-Man", found: false },
-    { character: "Sonic", found: false },
+    { name: "Alex Mercer", found: false },
+    { name: "Predator", found: false },
+    { name: "Spider-Man", found: false },
+    { name: "Sonic", found: false },
   ]);
   const [showCharacters, setShowCharacters] = useState(false);
 
@@ -38,7 +38,11 @@ function App() {
       {showCharacters && (
         <CharactersMenu hideCharactersList={hideCharactersList} />
       )}
-      <BackgroundImage playingState={playing} />
+      <BackgroundImage
+        playingState={playing}
+        characters={characters}
+        setCharacters={setCharacters}
+      />
     </div>
   );
 }
