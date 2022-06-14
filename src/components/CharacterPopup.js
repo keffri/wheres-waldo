@@ -1,6 +1,10 @@
 import React from "react";
 
 const CharacterPopup = (props) => {
+  const findCharacter = (name) => {
+    props.setCharacters(props.characters.filter((char) => char.name !== name));
+  };
+
   return (
     <div
       className="characterPopup"
@@ -9,7 +13,17 @@ const CharacterPopup = (props) => {
         top: props.popupCoords.y,
       }}
     >
-      <p></p>
+      {props.characters.map((char) => {
+        return (
+          <div
+            key={char.name}
+            className="characterPopup__selector"
+            onClick={() => findCharacter(char.name)}
+          >
+            {char.name}
+          </div>
+        );
+      })}
     </div>
   );
 };
