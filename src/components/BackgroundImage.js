@@ -32,7 +32,13 @@ const BackgroundImage = (props) => {
         onMouseMove={handleMouseMove}
         onClick={showCharacterPopup}
       />
-      {showPopup && <CharacterPopup popupCoords={popupCoords} />}
+      {showPopup && (
+        <CharacterPopup
+          popupCoords={popupCoords}
+          characters={props.characters}
+          setCharacters={props.setCharacters}
+        />
+      )}
     </div>
   );
 };
