@@ -15,8 +15,15 @@ const BackgroundImage = (props) => {
   };
 
   const showCharacterPopup = () => {
+    if (props.characters.length === 0) {
+      return;
+    }
     setPopupCords({ x: mouseCoords.x, y: mouseCoords.y });
     setShowPopup(true);
+  };
+
+  const hideCharacterPopup = () => {
+    setShowPopup(false);
   };
 
   return (
@@ -37,6 +44,7 @@ const BackgroundImage = (props) => {
           popupCoords={popupCoords}
           characters={props.characters}
           setCharacters={props.setCharacters}
+          hideCharacterPopup={hideCharacterPopup}
         />
       )}
     </div>

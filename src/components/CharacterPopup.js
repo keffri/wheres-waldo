@@ -3,6 +3,7 @@ import React from "react";
 const CharacterPopup = (props) => {
   const findCharacter = (name) => {
     props.setCharacters(props.characters.filter((char) => char.name !== name));
+    props.hideCharacterPopup();
   };
 
   return (
