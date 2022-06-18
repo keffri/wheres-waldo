@@ -45,6 +45,7 @@ const BackgroundImage = (props) => {
           characters={props.characters}
           setCharacters={props.setCharacters}
           hideCharacterPopup={hideCharacterPopup}
+          mouseCoords={mouseCoords}
         />
       )}
     </div>
