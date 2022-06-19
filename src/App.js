@@ -40,6 +40,7 @@ function App() {
       ],
     },
   ]);
+
   const [showCharacters, setShowCharacters] = useState(false);
 
   const startGame = () => {
@@ -64,7 +65,10 @@ function App() {
       />
       {!playing && <Menu startGame={startGame} />}
       {showCharacters && (
-        <CharactersMenu hideCharactersList={hideCharactersList} />
+        <CharactersMenu
+          hideCharactersList={hideCharactersList}
+          characters={characters}
+        />
       )}
       <BackgroundImage
         playingState={playing}
