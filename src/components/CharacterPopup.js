@@ -21,7 +21,7 @@ const CharacterPopup = (props) => {
     ) {
       selectedCharacter.found = true;
       alert(`You found ${selectedCharacter.name}!`);
-      props.setCharacters([...removeCharArray]);
+      props.setCharacters([selectedCharacter, ...removeCharArray]);
       props.hideCharacterPopup();
     } else {
       alert("Keep searching!");
@@ -37,17 +37,21 @@ const CharacterPopup = (props) => {
         top: props.popupCoords.y,
       }}
     >
-      {props.characters.map((char) => {
-        return (
-          <div
-            key={char.name}
-            className="characterPopup__selector"
-            onClick={() => findCharacter(char.name)}
-          >
-            {char.name}
-          </div>
-        );
-      })}
+      {props.characters
+        .filter((char) => {
+          return char.found !== true;
+        })
+        .map((char) => {
+          return (
+            <div
+              key={char.name}
+              className="characterPopup__selector"
+              onClick={() => findCharacter(char.name)}
+            >
+              {char.name}
+            </div>
+          );
+        })}
     </div>
   );
 };
