@@ -2,6 +2,8 @@ import React from "react";
 import Stopwatch from "./Stopwatch";
 
 const Header = (props) => {
+  const charsFound = props.characters.every((char) => char.found);
+
   let button;
   if (props.playingState) {
     if (!props.showCharacters) {
@@ -18,8 +20,12 @@ const Header = (props) => {
   return (
     <header className="header">
       <h1 className="header__title">findr</h1>
-      {button}
-      <Stopwatch playing={props.playingState} />
+      {!charsFound ? button : null}
+      <Stopwatch
+        playing={props.playingState}
+        time={props.time}
+        setTime={props.setTime}
+      />
     </header>
   );
 };
