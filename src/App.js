@@ -6,6 +6,7 @@ import CharactersMenu from "./components/CharactersMenu";
 
 function App() {
   const [playing, setPlaying] = useState(false);
+  const [time, setTime] = useState(0);
   const [characters, setCharacters] = useState([
     {
       name: "Alex Mercer",
@@ -62,6 +63,9 @@ function App() {
         showCharacters={showCharacters}
         showCharactersList={showCharactersList}
         hideCharactersList={hideCharactersList}
+        time={time}
+        setTime={setTime}
+        characters={characters}
       />
       {!playing && <Menu startGame={startGame} />}
       {showCharacters && (
