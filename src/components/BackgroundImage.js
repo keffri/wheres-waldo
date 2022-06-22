@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import findrimg from "../images/egorklyuchnyk.jpg";
 import CharacterPopup from "./CharacterPopup";
+import Results from "./Results";
 
 const BackgroundImage = (props) => {
   const [mouseCoords, setMouseCoords] = useState({ x: 0, y: 0 });
   const [popupCoords, setPopupCords] = useState({ x: 0, y: 0 });
   const [showPopup, setShowPopup] = useState(false);
+  // const [showResults, setShowResults] = useState(false);
 
   const handleMouseMove = (e) => {
     setMouseCoords({
@@ -39,6 +41,7 @@ const BackgroundImage = (props) => {
         onMouseMove={handleMouseMove}
         onClick={showCharacterPopup}
       />
+      {!props.playingState && <Results time={props.time} />}
       {showPopup && (
         <CharacterPopup
           popupCoords={popupCoords}
