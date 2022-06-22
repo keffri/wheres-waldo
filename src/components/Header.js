@@ -23,6 +23,7 @@ const Header = (props) => {
       {!charsFound ? button : null}
       <Stopwatch
         playing={props.playingState}
+        setPlaying={props.setPlaying}
         time={props.time}
         setTime={props.setTime}
       />
