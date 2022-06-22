@@ -23,6 +23,9 @@ const CharacterPopup = (props) => {
       alert(`You found ${selectedCharacter.name}!`);
       props.setCharacters([selectedCharacter, ...removeCharArray]);
       props.hideCharacterPopup();
+      if (props.characters.every((char) => char.found)) {
+        props.setPlaying(false);
+      }
     } else {
       alert("Keep searching!");
       props.hideCharacterPopup();
