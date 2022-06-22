@@ -142,3 +142,20 @@
   border: 2px solid #000;
   cursor: url(../images/custom-cursor.svg), auto;
 }
+
+/**** RESULTS ****/
+
+.results {
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%);
+  height: 200px;
+  width: 500px;
+  background-color: #404040;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
