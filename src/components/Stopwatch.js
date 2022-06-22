@@ -1,21 +1,20 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 
 const Stopwatch = (props) => {
-  const [time, setTime] = useState(0);
-
+  const { playing, setTime } = props;
   useEffect(() => {
     let interval = null;
 
-    if (props.playing) {
+    if (playing) {
       interval = setInterval(() => {
-        props.setTime((prevTime) => prevTime + 10);
+        setTime((prevTime) => prevTime + 10);
       }, 10);
     } else {
       clearInterval(interval);
     }
 
     return () => clearInterval(interval);
-  }, [props.playing]);
+  }, [playing, setTime]);
 
   return (
     <div>
