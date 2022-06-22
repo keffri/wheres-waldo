@@ -44,6 +44,7 @@ const BackgroundImage = (props) => {
       {!props.playingState && <Results time={props.time} />}
       {showPopup && (
         <CharacterPopup
+          setPlaying={props.setPlaying}
           popupCoords={popupCoords}
           characters={props.characters}
           setCharacters={props.setCharacters}

@@ -79,6 +79,7 @@ function App() {
       )}
       <BackgroundImage
         playingState={playing}
+        setPlaying={setPlaying}
         characters={characters}
         setCharacters={setCharacters}
         time={time}
