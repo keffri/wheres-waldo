@@ -6,6 +6,7 @@ import CharactersMenu from "./components/CharactersMenu";
 
 function App() {
   const [playing, setPlaying] = useState(false);
+  const [showMenu, setShowMenu] = useState(true);
   const [time, setTime] = useState(0);
   const [characters, setCharacters] = useState([
     {
@@ -46,6 +47,7 @@ function App() {
 
   const startGame = () => {
     setPlaying(true);
+    setShowMenu(false);
   };
 
   const showCharactersList = () => {
@@ -60,6 +62,7 @@ function App() {
     <div className="app">
       <Header
         playingState={playing}
+        setPlaying={setPlaying}
         showCharacters={showCharacters}
         showCharactersList={showCharactersList}
         hideCharactersList={hideCharactersList}
@@ -67,7 +70,7 @@ function App() {
         setTime={setTime}
         characters={characters}
       />
-      {!playing && <Menu startGame={startGame} />}
+      {showMenu && <Menu startGame={startGame} />}
       {showCharacters && (
         <CharactersMenu
           hideCharactersList={hideCharactersList}
@@ -78,6 +81,7 @@ function App() {
         playingState={playing}
         characters={characters}
         setCharacters={setCharacters}
+        time={time}
       />
     </div>
   );
