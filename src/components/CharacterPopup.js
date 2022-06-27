@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import SearchPopup from "./SearchPopup";
+import React from "react";
 
 const CharacterPopup = (props) => {
   const findCharacter = (name) => {
