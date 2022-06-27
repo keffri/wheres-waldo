@@ -2,11 +2,17 @@ import React, { useState } from "react";
 import findrimg from "../images/egorklyuchnyk.jpg";
 import CharacterPopup from "./CharacterPopup";
 import Results from "./Results";
+import SearchPopup from "./SearchPopup";
 
 const BackgroundImage = (props) => {
   const [mouseCoords, setMouseCoords] = useState({ x: 0, y: 0 });
   const [popupCoords, setPopupCords] = useState({ x: 0, y: 0 });
   const [showPopup, setShowPopup] = useState(false);
+  const [searchPopup, setSearchPopup] = useState({
+    show: false,
+    character: undefined,
+    color: undefined,
+  });
   // const [showResults, setShowResults] = useState(false);
 
   const handleMouseMove = (e) => {
@@ -42,6 +48,12 @@ const BackgroundImage = (props) => {
         onClick={showCharacterPopup}
       />
       {!props.playingState && <Results time={props.time} />}
+      {searchPopup.show && (
+        <SearchPopup
+          character={searchPopup.character}
+          color={searchPopup.color}
+        />
+      )}
       {showPopup && (
         <CharacterPopup
           setPlaying={props.setPlaying}
@@ -50,6 +62,7 @@ const BackgroundImage = (props) => {
           setCharacters={props.setCharacters}
           hideCharacterPopup={hideCharacterPopup}
           mouseCoords={mouseCoords}
+          setSearchPopup={setSearchPopup}
         />
       )}
     </div>
