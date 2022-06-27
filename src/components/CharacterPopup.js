@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import SearchPopup from "./SearchPopup";
 
 const CharacterPopup = (props) => {
   const findCharacter = (name) => {
@@ -20,16 +21,41 @@ const CharacterPopup = (props) => {
       mouseY <= selectedCharacter.coords[1].endY
     ) {
       selectedCharacter.found = true;
-      alert(`You found ${selectedCharacter.name}!`);
+      // alert(`You found ${selectedCharacter.name}!`);
+      props.setSearchPopup({
+        show: true,
+        character: selectedCharacter.name,
+        color: "#90ee90",
+      });
       props.setCharacters([selectedCharacter, ...removeCharArray]);
       props.hideCharacterPopup();
+      setTimeout(() => {
+        props.setSearchPopup({
+          show: false,
+          character: undefined,
+          color: undefined,
+        });
+      }, 1500);
       if (props.characters.every((char) => char.found)) {
-        props.setPlaying(false);
+        setTimeout(() => {
+          props.setPlaying(false);
+        }, 1750);
       }
     } else {
-      alert("Keep searching!");
+      props.setSearchPopup({
+        show: true,
+        character: undefined,
+        color: "#FF7F7F",
+      });
       props.hideCharacterPopup();
     }
+    setTimeout(() => {
+      props.setSearchPopup({
+        show: false,
+        character: undefined,
+        color: undefined,
+      });
+    }, 1500);
   };
 
   return (
