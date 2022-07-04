@@ -1,7 +1,18 @@
 import React from "react";
+import db from "../Firebase";
+import { collection, getDocs } from "firebase/firestore";
 
 const CharacterPopup = (props) => {
   const findCharacter = (name) => {
+    async function getCoordinates(db) {
+      const coordsCol = collection(db, "coordinates");
+      const coordsSnapshot = await getDocs(coordsCol);
+      const coordsList = coordsSnapshot.docs.map((doc) => doc.data());
+      return coordsList;
+    }
+
+    const coordsList = getCoordinates(db);
+
     let mouseX = props.mouseCoords.x;
     let mouseY = props.mouseCoords.y;
 
@@ -12,7 +23,6 @@ const CharacterPopup = (props) => {
       return char.name !== name;
     });
 
-    // console.log(removeCharArray);
     if (
       mouseX >= selectedCharacter.coords[0].startX &&
       mouseX <= selectedCharacter.coords[1].endX &&
