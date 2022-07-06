@@ -3,15 +3,20 @@ import db from "../Firebase";
 import { collection, getDocs } from "firebase/firestore";
 
 const CharacterPopup = (props) => {
-  const findCharacter = (name) => {
-    async function getCoordinates(db) {
-      const coordsCol = collection(db, "coordinates");
-      const coordsSnapshot = await getDocs(coordsCol);
-      const coordsList = coordsSnapshot.docs.map((doc) => doc.data());
-      return coordsList;
-    }
+  async function getCoordinates(db) {
+    const coordsCol = collection(db, "coordinates");
+    const coordsSnapshot = await getDocs(coordsCol);
+    const coordsList = coordsSnapshot.docs.map((doc) => doc.data());
 
-    const coordsList = getCoordinates(db);
+    return coordsList;
+  }
+
+  const findCharacter = async (name) => {
+    const coordsList = await getCoordinates(db).then((data) => data);
+
+    let selectedCoords = coordsList.find(
+      (char) => char.name === name
+    ).coordinates;
 
     let mouseX = props.mouseCoords.x;
     let mouseY = props.mouseCoords.y;
@@ -19,18 +24,22 @@ const CharacterPopup = (props) => {
     let [selectedCharacter] = props.characters.filter((char) => {
       return char.name === name;
     });
+
     let removeCharArray = props.characters.filter((char) => {
       return char.name !== name;
     });
 
     if (
-      mouseX >= selectedCharacter.coords[0].startX &&
-      mouseX <= selectedCharacter.coords[1].endX &&
-      mouseY >= selectedCharacter.coords[0].startY &&
-      mouseY <= selectedCharacter.coords[1].endY
+      mouseX >= selectedCoords.startX &&
+      mouseX <= selectedCoords.endX &&
+      mouseY >= selectedCoords.startY &&
+      mouseY <= selectedCoords.endY
+      // mouseX >= selectedCharacter.coords[0].startX &&
+      // mouseX <= selectedCharacter.coords[1].endX &&
+      // mouseY >= selectedCharacter.coords[0].startY &&
+      // mouseY <= selectedCharacter.coords[1].endY
     ) {
       selectedCharacter.found = true;
-      // alert(`You found ${selectedCharacter.name}!`);
       props.setSearchPopup({
         show: true,
         character: selectedCharacter.name,
@@ -45,11 +54,6 @@ const CharacterPopup = (props) => {
           color: undefined,
         });
       }, 1500);
-      if (props.characters.every((char) => char.found)) {
-        setTimeout(() => {
-          props.setPlaying(false);
-        }, 1750);
-      }
     } else {
       props.setSearchPopup({
         show: true,
@@ -74,6 +78,7 @@ const CharacterPopup = (props) => {
         left: props.popupCoords.x,
         top: props.popupCoords.y,
       }}
+      // onClick={() => getCoordinates(db).then((data) => console.log(data))}
     >
       {props.characters
         .filter((char) => {
@@ -84,7 +89,10 @@ const CharacterPopup = (props) => {
             <div
               key={char.name}
               className="characterPopup__selector"
-              onClick={() => findCharacter(char.name)}
+              onClick={() => {
+                getCoordinates(db);
+                findCharacter(char.name);
+              }}
             >
               {char.name}
             </div>
