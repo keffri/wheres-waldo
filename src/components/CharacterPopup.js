@@ -34,10 +34,6 @@ const CharacterPopup = (props) => {
       mouseX <= selectedCoords.endX &&
       mouseY >= selectedCoords.startY &&
       mouseY <= selectedCoords.endY
-      // mouseX >= selectedCharacter.coords[0].startX &&
-      // mouseX <= selectedCharacter.coords[1].endX &&
-      // mouseY >= selectedCharacter.coords[0].startY &&
-      // mouseY <= selectedCharacter.coords[1].endY
     ) {
       selectedCharacter.found = true;
       props.setSearchPopup({
@@ -78,7 +74,6 @@ const CharacterPopup = (props) => {
         left: props.popupCoords.x,
         top: props.popupCoords.y,
       }}
-      // onClick={() => getCoordinates(db).then((data) => console.log(data))}
     >
       {props.characters
         .filter((char) => {
