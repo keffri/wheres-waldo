@@ -50,6 +50,12 @@ const CharacterPopup = (props) => {
           color: undefined,
         });
       }, 1500);
+      if (props.characters.every((char) => char.found)) {
+        props.setPlaying(false);
+        setTimeout(() => {
+          props.setShowResults(true);
+        }, 1750);
+      }
     } else {
       props.setSearchPopup({
         show: true,
