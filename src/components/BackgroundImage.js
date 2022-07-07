@@ -13,7 +13,7 @@ const BackgroundImage = (props) => {
     character: undefined,
     color: undefined,
   });
-  // const [showResults, setShowResults] = useState(false);
+  const [showResults, setShowResults] = useState(false);
 
   const handleMouseMove = (e) => {
     setMouseCoords({
@@ -47,7 +47,7 @@ const BackgroundImage = (props) => {
         onMouseMove={handleMouseMove}
         onClick={showCharacterPopup}
       />
-      {!props.playingState && <Results time={props.time} />}
+      {showResults && <Results time={props.time} />}
       {searchPopup.show && (
         <SearchPopup
           character={searchPopup.character}
@@ -63,6 +63,7 @@ const BackgroundImage = (props) => {
           hideCharacterPopup={hideCharacterPopup}
           mouseCoords={mouseCoords}
           setSearchPopup={setSearchPopup}
+          setShowResults={setShowResults}
         />
       )}
     </div>
