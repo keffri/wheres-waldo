@@ -2,6 +2,10 @@
     box-sizing: border-box;
   }
 
+#root {
+  overflow-x: hidden;
+}
+
 .app {
   width: 100%;
   background-color: #000;
@@ -140,7 +144,7 @@
 .findr {
   max-width: 100%;
   border: 2px solid #000;
-  cursor: url(../images/custom-cursor.svg), auto;
+  /* cursor: url(../images/custom-cursor.svg), auto; */
   
 }
 
