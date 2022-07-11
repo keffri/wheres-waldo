@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import findrimg from "../images/egorklyuchnyk.jpg";
 import CharacterPopup from "./CharacterPopup";
 import Results from "./Results";
@@ -21,6 +21,10 @@ const BackgroundImage = (props) => {
 
   const elementRef = useRef(null);
   // console.log(elementRef.current?.clientHeight);
+
+  useEffect(() => {
+    window.addEventListener("resize", () => setShowPopup(false));
+  });
 
   const getDimensions = () => {
     setBackgroundDimensions({
