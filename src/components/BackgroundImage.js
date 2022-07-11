@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import findrimg from "../images/egorklyuchnyk.jpg";
 import CharacterPopup from "./CharacterPopup";
 import Results from "./Results";
@@ -14,6 +14,20 @@ const BackgroundImage = (props) => {
     color: undefined,
   });
   const [showResults, setShowResults] = useState(false);
+  const [backgroundDimensions, setBackgroundDimensions] = useState({
+    height: undefined,
+    width: undefined,
+  });
+
+  const elementRef = useRef(null);
+  // console.log(elementRef.current?.clientHeight);
+
+  const getDimensions = () => {
+    setBackgroundDimensions({
+      height: elementRef.current.clientHeight,
+      width: elementRef.current.clientWidth,
+    });
+  };
 
   const handleMouseMove = (e) => {
     setMouseCoords({
@@ -26,7 +40,20 @@ const BackgroundImage = (props) => {
     if (props.characters.length === 0) {
       return;
     }
-    setPopupCords({ x: mouseCoords.x, y: mouseCoords.y });
+
+    if (
+      mouseCoords.y >= backgroundDimensions.height - 120 &&
+      mouseCoords.x >= backgroundDimensions.width - 100
+    ) {
+      setPopupCords({ x: mouseCoords.x - 100, y: mouseCoords.y - 120 });
+    } else if (mouseCoords.x >= backgroundDimensions.width - 100) {
+      setPopupCords({ x: mouseCoords.x - 100, y: mouseCoords.y });
+    } else if (mouseCoords.y >= backgroundDimensions.height - 120) {
+      setPopupCords({ x: mouseCoords.x, y: mouseCoords.y - 120 });
+    } else {
+      setPopupCords({ x: mouseCoords.x, y: mouseCoords.y });
+    }
+
     setShowPopup(true);
   };
 
@@ -37,6 +64,7 @@ const BackgroundImage = (props) => {
   return (
     <div className="backgroundImage">
       <img
+        ref={elementRef}
         style={{
           filter: !props.playingState ? "brightness(30%)" : "brightness(100%)",
           pointerEvents: !props.playingState ? "none" : "auto",
@@ -45,7 +73,10 @@ const BackgroundImage = (props) => {
         src={findrimg}
         alt="test"
         onMouseMove={handleMouseMove}
-        onClick={showCharacterPopup}
+        onClick={() => {
+          showCharacterPopup();
+          getDimensions();
+        }}
       />
       {showResults && <Results time={props.time} />}
       {searchPopup.show && (
@@ -64,6 +95,7 @@ const BackgroundImage = (props) => {
           mouseCoords={mouseCoords}
           setSearchPopup={setSearchPopup}
           setShowResults={setShowResults}
+          backgroundDimensions={backgroundDimensions}
         />
       )}
     </div>
