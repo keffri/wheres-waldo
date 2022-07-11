@@ -2,10 +2,6 @@
     box-sizing: border-box;
   }
 
-#root {
-  overflow-x: hidden;
-}
-
 .app {
   width: 100%;
   background-color: #000;
@@ -21,7 +17,7 @@
   justify-content: space-evenly;
   color: #fff;
   padding: 1em;
-  z-index: 1;
+  z-index: 3;
   background-color: #000;
 }
 
@@ -144,8 +140,6 @@
 .findr {
   max-width: 100%;
   border: 2px solid #000;
-  /* cursor: url(../images/custom-cursor.svg), auto; */
-  
 }
 
 /**** RESULTS ****/
