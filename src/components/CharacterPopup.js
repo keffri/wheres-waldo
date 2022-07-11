@@ -14,12 +14,15 @@ const CharacterPopup = (props) => {
   const findCharacter = async (name) => {
     const coordsList = await getCoordinates(db).then((data) => data);
 
+    const backgroundHeight = props.backgroundDimensions.height;
+    const backgroundWidth = props.backgroundDimensions.width;
+
     let selectedCoords = coordsList.find(
       (char) => char.name === name
     ).coordinates;
 
-    let mouseX = props.mouseCoords.x;
-    let mouseY = props.mouseCoords.y;
+    let mouseX = props.mouseCoords.x / backgroundWidth;
+    let mouseY = props.mouseCoords.y / backgroundHeight;
 
     let [selectedCharacter] = props.characters.filter((char) => {
       return char.name === name;
