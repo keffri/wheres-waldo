@@ -4,6 +4,8 @@ This is a Where's Waldo like searching game built with React and Firebase. There
 
 Firebase is used to store the coordinates of each character. When you select a character on the UI the selected character's coordinates data is read from Firebase and is either validated or invalidated. This decision is made when the area where you clicked the mouse falls within the coordinates read from Firebase for the specific character.
 
+Give it a try here: https://keffri.github.io/wheres-waldo/
+
 ## Author
 
 👤 **Keffri Neal**
