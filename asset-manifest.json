@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/wheres-waldo/static/css/main.24b80f69.css",
+    "main.js": "/wheres-waldo/static/js/main.9117e830.js",
+    "static/media/egorklyuchnyk.jpg": "/wheres-waldo/static/media/egorklyuchnyk.20b665e521049ec6b811.jpg",
+    "static/media/sonic.jpg": "/wheres-waldo/static/media/sonic.87e4d5a40ee0af804e81.jpg",
+    "static/media/spiderman.jpg": "/wheres-waldo/static/media/spiderman.aff7fd704960b8f15fbf.jpg",
+    "static/media/predator.jpg": "/wheres-waldo/static/media/predator.360f8437ac853461131d.jpg",
+    "static/media/alexmercer.jpg": "/wheres-waldo/static/media/alexmercer.7fd98f1d238f446d55b5.jpg",
+    "index.html": "/wheres-waldo/index.html",
+    "main.24b80f69.css.map": "/wheres-waldo/static/css/main.24b80f69.css.map",
+    "main.9117e830.js.map": "/wheres-waldo/static/js/main.9117e830.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.24b80f69.css",
+    "static/js/main.9117e830.js"
+  ]
+}
