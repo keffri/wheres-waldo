@@ -7,7 +7,7 @@ Firebase is used to store the coordinates of each character. When you select a c
 Give it a try here: https://keffri.github.io/wheres-waldo/
 
 <p align="center">
-  <img src="src/images/wheresWaldoPreview.png" width="350" title="Where's Waldo Preview">
+  <img src="src/images/wheresWaldoPreview.png" width="800" title="Where's Waldo Preview">
 </p>
 
 ## Author
