@@ -14,7 +14,7 @@ Firebase is used to store the coordinates of each character. When you select a c
   </li>
   <li>When you select a character from the interactive list, the coordinates of your mouse click are checked against the coordinates of the character stored on Firebase.
     <ul>      
-      <img src="src/images/coordinateSystem.png title="coordinate system">
+      <img src="src/images/coordinateSystem.png" title="coordinate system">
       <li>The starting/ending X and Y coordinates are calculated to define the location of a character on the web page.</li>
       <li>If the coordinates of your mouse clicked are determined to be within this clickable area for your selected character that is a success.</li>
     </ul>
