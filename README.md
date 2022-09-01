@@ -31,5 +31,5 @@ Give it a try here: https://keffri.github.io/wheres-waldo/
 
 👤 **Keffri Neal**
 
-- Twitter: [@keffri](https://twitter.com/keffri)
+- LinkedIn: [@keffri](https://www.linkedin.com/in/keffri/)
 - Github: [@keffri](https://github.com/keffri)
