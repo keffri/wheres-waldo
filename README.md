@@ -1,4 +1,4 @@
-<h1>Where's Waldo - The Odin Project</h1>
+<h1>Where's Waldo</h1>
 
 This is a Where's Waldo like searching game built with React and Firebase. There are four characters hidden within the image, and the user find them by clicking on the character and selecting the appropriate one.
 
